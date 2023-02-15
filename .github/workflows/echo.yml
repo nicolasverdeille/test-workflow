@@ -22,7 +22,7 @@ jobs:
   inputs:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.input.outputs.version }}
+      version: ${{ fromJSON(steps.input.outputs.version) }}
     steps:
       - name: input
         id: input
@@ -37,4 +37,4 @@ jobs:
       - name: input
         id: input
         run: |
-          echo "${{ fromJSON(needs.inputs.outputs.version)[0] }}"
+          echo "${{ needs.inputs.outputs.version[0] }}"
