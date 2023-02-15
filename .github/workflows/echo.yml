@@ -37,4 +37,4 @@ jobs:
       - name: input
         id: input
         run: |
-          echo "${{ needs.inputs.outputs.version }}
+          echo "${{ needs.inputs.outputs.version }}"
