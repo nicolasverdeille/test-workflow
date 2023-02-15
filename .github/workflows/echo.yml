@@ -27,7 +27,7 @@ jobs:
       - name: input
         id: input
         run: |
-          echo 'version=["1", "2", "3", "84354"]' >> $GITHUB_OUTPUT
+          echo 'version=\"["1", "2", "3", "84354"]\"' >> $GITHUB_OUTPUT
 
   test:
     runs-on: ubuntu-latest
