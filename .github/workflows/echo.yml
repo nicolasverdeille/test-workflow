@@ -18,3 +18,23 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+    
+  inputs:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.input.outputs.version }}
+    steps:
+      - name: input
+        id: input
+        run: |
+          echo "version=1.2.3.84354" >> $GITHUB_OUTPUT
+
+  test:
+    runs-on: ubuntu-latest
+    needs:
+      - inputs
+    steps:
+      - name: input
+        id: input
+        run: |
+          echo "${{ needs.inputs.outputs.version }}
